@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Last Frontier</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: url("background.jpg") no-repeat center center fixed;
+      background-size: cover;
+      color: #e0e0e0;
+    }
+
+    /* Navbar */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 25px 40px;
+      background: rgba(3, 48, 48, 0.3);
+      border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+      box-shadow: 0 0 12px rgba(1, 244, 244, 0.2);
+    }
+    header .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Glow animation */
+    @keyframes logoGlow {
+      0% { box-shadow: 0 0 6px cyan; }
+      50% { box-shadow: 0 0 15px cyan, 0 0 25px #00ffff; }
+      100% { box-shadow: 0 0 6px cyan; }
+    }
+
+    /* Header and Footer Logos */
+    header img, footer img {
+      height: 42px;
+      width: 42px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px cyan;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    header img:hover, footer img:hover {
+      animation: logoGlow 2s infinite alternate;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 600;
+      color: cyan;
+      letter-spacing: 1px;
+      text-shadow: 0 0 6px cyan, 0 0 12px #00ffff;
+    }
+
+    /* Navbar links */
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      color: #80faff;
+      transition: all 0.3s ease;
+    }
+    nav a:hover {
+      color: cyan;
+      text-shadow: 0 0 8px cyan;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 100px 20px;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .hero-content {
+      position: relative;
+      max-width: 800px;
+      z-index: 1;
+      padding: 50px;
+      border-radius: 20px;
+      background: rgba(10, 10, 30, 0.7);
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+      animation: glowBorder 2s infinite alternate;
+    }
+
+    @keyframes glowBorder {
+      from { box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); }
+      to { box-shadow: 0 0 25px rgba(0, 255, 255, 1); }
+    }
+
+    .hero h2 {
+      font-size: 42px;
+      font-weight: 700;
+      color: cyan;
+      text-shadow: 0 0 15px cyan;
+      margin-bottom: 15px;
+    }
+    .hero h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #80faff;
+    }
+    .hero p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: #d0f0ff;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 14px 34px;
+      margin: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 30px;
+      background: linear-gradient(90deg, #00ffff, #0077ff);
+      color: #000000;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 1);
+      transition: all 0.3s ease, transform 0.2s ease;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #00ffaa, #00ffff);
+      box-shadow: 0 0 20px rgba(0, 255, 200, 0.8);
+    }
+    .btn.donate {
+      background: linear-gradient(90deg, #ff0077, #ff00ff);
+      color: #fff;
+      box-shadow: 0 0 15px #ff00ff;
+    }
+    .btn.donate:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #ff66aa, #ff33ff);
+      box-shadow: 0 0 25px #ff33ff;
+    }
+
+    /* Green Updates Button */
+    .btn.updates {
+      background: linear-gradient(90deg, #00ff77, #007f33);
+      color: #000000;
+      box-shadow: 0 0 15px rgba(0, 255, 119, 0.8);
+    }
+    .btn.updates:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #33ff99, #00ff77);
+      box-shadow: 0 0 25px rgba(0, 255, 119, 1);
+    }
+
+    /* Donation Tracker */
+    .donation-tracker {
+      margin-top: 30px;
+      font-size: 14px;
+      text-align: left;
+      color: #d0f0ff;
+    }
+    .donation-tracker h3 {
+      color: rgb(171, 50, 205);
+      margin-bottom: 5px;
+    }
+    .donation-tracker p {
+      margin: 5px 0 15px;
+      color: #e4a0ff;
+    }
+    .tracker-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 6px 0;
+    }
+    .tracker-bar span {
+      font-size: 13px;
+      color: #f2b0ff;
+      min-width: 45px;
+      text-align: center;
+    }
+    .bar {
+      flex: 1;
+      height: 12px;
+      background: #111;
+      border: 1px solid rgb(255, 0, 255);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .bar .fill {
+      background: linear-gradient(90deg, #ee00ff, #b800cc);
+      height: 100%;
+      width: 0;
+      transition: width 1.5s ease-in-out;
+    }
+
+    /* Second bar color */
+    #hardware-fill {
+      background: linear-gradient(90deg, #00ff77, #00cc55);
+      border-radius: 3px;
+    }
+
+    /* Footer */
+    footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      padding: 25px;
+      background: rgba(3, 48, 48, 0.3);
+      border-top: 1px solid rgba(0, 255, 255, 0.3);
+    }
+    footer span {
+      font-size: 14px;
+      color: cyan;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+      nav {
+        gap: 12px;
+      }
+      .hero h2 {
+        font-size: 28px;
+      }
+      .hero h3 {
+        font-size: 18px;
+      }
+      .hero p {
+        font-size: 14px;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="logo">
+      <img src="tlf_circular.png" alt="The Last Frontier Logo">
+      <h1></h1>
+    </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="https://discord.gg/mYn57emhGG" target="_blank">Discord</a>
+      <a href="#donate">Donate</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="about">
+    <div class="hero-content">
+      <h2>About the Project</h2>
+      <h3>Rebuilding the Legacy of TCF Season 2</h3>
+      <p>
+        The Last Frontier was created with the goal of faithfully recreating the original TCF server. 
+        Our vision is to bring back a fully functional Season 2 experience, exactly as it was meant to be played.
+      </p>
+      <a href="https://discord.gg/mYn57emhGG" target="_blank" class="btn">Join Discord</a>
+    </div>
+  </section>
+
+ <!-- Donate Section -->
+<section id="donate" class="hero">
+  <div class="hero-content">
+    <h2>Support the Project</h2>
+    <h3>Help Us Keep The Frontier Alive</h3>
+
+    <p>
+      Running servers and keeping this project alive requires real resources.<br>
+      Each region has separate monthly server costs:
+    </p>
+
+    <ul style="list-style:none; padding-left:0; margin:15px 0; color:#d0f0ff; text-shadow:0 0 6px rgba(0,255,255,0.4);">
+      <li>✦ <strong>EU Server:</strong> $150/month</li>
+      <li>✦ <strong>ASIA Server:</strong> $300/month</li>
+      <li>✦ <strong>NA Server:</strong> $300/month</li>
+    </ul>
+
+    <p style="margin-top:15px;">
+      Your support helps keep all regions online and running smoothly.<br>
+      Donations are optional — never feel obligated to contribute.
+    </p>
+
+    <!-- Donation Tracker -->
+    <div class="donation-tracker">
+
+      <div class="tracker-bar">
+        <span>$426,34</span>
+        <div class="bar">
+          <div class="fill" id="donation-fill"></div>
+        </div>
+        <span>$750</span>
+      </div>
+
+      <div style="text-align: center; margin-top: 20px;">
+        <a href="donate.html" target="_blank" class="btn donate">Donate Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer>
+    <img src="tlf_circular.png" alt="The Last Frontier Footer Logo">
+    <span>&copy; 2025-2026 The Last Frontier</span>
+  </footer>
+
+  <script>
+    function updateDonationProgress(id, percent) {
+      const fill = document.getElementById(id);
+      fill.style.width = percent + '%';
+    }
+    updateDonationProgress('donation-fill', 63);
+  </script>
+
+</body>
+</html>

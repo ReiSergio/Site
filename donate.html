@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Last Frontier - Donations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      font-family: 'Orbitron', sans-serif;
+      background: url("background2.jpg") no-repeat center center fixed;
+      background-size: cover;
+      color: #d7e9ff;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+
+      padding-bottom: 130px; /* Prevent content from hiding behind fixed footer */
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(162, 68, 123, 0.25), transparent 60%),
+                  radial-gradient(circle at 80% 75%, rgba(0, 255, 255, 0.15), transparent 60%);
+      mix-blend-mode: screen;
+      pointer-events: none;
+      animation: pulse-bg 12s infinite alternate;
+    }
+    @keyframes pulse-bg { from { opacity: 0.35; } to { opacity: 1; } }
+
+    header {  
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 26px 45px;
+      background: rgba(0, 0, 0, 0.45);
+      border-bottom: 1px solid rgba(162, 68, 123, 0.8);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(162, 68, 123, 0.6);
+    }
+
+    header img {
+      height: 46px;
+      width: 46px;
+      border-radius: 50%;
+      box-shadow: 0 0 14px #a2447b;
+      transition: 0.3s ease;
+    }
+    header img:hover { transform: rotate(8deg) scale(1.06); box-shadow: 0 0 22px #a2447b; }
+
+    nav { display: flex; gap: 23px; }
+    nav a {
+      font-size: 16px;
+      font-weight: 600;
+      color: #ff80d4;
+      text-decoration: none;
+      transition: 0.25s ease;
+    }
+    nav a:hover { text-shadow: 0 0 12px #ff80d4; transform: scale(1.05); }
+
+    /* Hero - center box vertically and horizontally */
+    .hero {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      padding: 50px;
+      border-radius: 25px;
+      background: rgba(0, 0, 0, 0.32);
+      border: 1px solid rgba(162, 68, 123, 1);
+      backdrop-filter: blur(12px);
+      animation: glow 2.5s infinite alternate;
+      box-shadow: 0 0 28px rgba(162, 68, 123, 0.7);
+    }
+    @keyframes glow { from { box-shadow: 0 0 14px #a2447b; } to { box-shadow: 0 0 30px #a2447b; } }
+
+    .hero h2 {
+      font-size: 46px;
+      font-weight: 700;
+      color: #ff92ed;
+      margin-bottom: 15px;
+      text-shadow: 0 0 20px #ff92ed;
+    }
+    .hero p {
+      color: #daf9ff;
+      font-size: 17px;
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.7;
+      margin-bottom: 35px;
+    }
+
+    .big-btn {
+      background: rgba(162, 68, 123, 0.75);
+      padding: 22px 45px;
+      border-radius: 14px;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 0 25px rgba(162, 68, 123, 0.9);
+      transition: 0.25s ease;
+      display: inline-block;
+      width: 75%;
+      max-width: 420px;
+    }
+    .big-btn:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(162, 68, 123, 1); }
+
+    .big-btn.alt {
+      background: rgba(0, 169, 255, 0.55);
+      box-shadow: 0 0 25px rgba(0, 169, 255, 0.8);
+    }
+    .big-btn.alt:hover { box-shadow: 0 0 40px rgba(0, 169, 255, 1); }
+
+    /* FIXED FOOTER (matches Updates page style) */
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+
+      padding: 25px;
+      text-align: center;
+
+      background: rgba(3,48,48,0.3);
+      border-top: 1px solid rgba(162, 68, 123, 0.9);
+      box-shadow: 0 0 12px rgba(162, 68, 123, 0.35);
+      backdrop-filter: blur(10px);
+
+      border-radius: 18px 18px 0 0;
+      z-index: 999;
+    }
+
+    footer img {
+      height: 44px;
+      width: 44px;
+      border-radius: 50%;
+      margin-bottom: 8px;
+      box-shadow: 0 0 12px #a2447b;
+    }
+
+    footer span {
+      display: block;
+      color: #c9f1ff;
+      font-size: 15px;
+      letter-spacing: 1px;
+      margin-top: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content { padding: 35px; }
+      .hero h2 { font-size: 34px; }
+      .hero p { font-size: 15px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo"><img src="tlf_circular.png" alt="The Last Frontier"></div>
+  <nav>
+    <a href="index.html">About</a>
+    <a href="https://discord.gg/U637Q7rc2B" target="_blank">Discord</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h2>Support the Project</h2>
+    <p>Your contribution fuels development, research and community growth — thank you for standing with us on the Last Frontier.</p>
+
+    <a href="crypto.html" class="big-btn">💠 Donate with Crypto</a>
+    <br><br>
+    <a href="other.html" class="big-btn alt">💳 Other Payment Methods</a>
+  </div>
+</section>
+
+</body>
+</html>
