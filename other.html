@@ -170,6 +170,34 @@
       </a>
     </div>
 
+   <div class="entry">
+  <h4>YoMoney "RU only"</h4>
+
+  <button
+    class="link-btn"
+    onclick="copyCardNumber('4100119541732022')">
+    4100119541732022
+  </button>
+
+  <span id="copy-msg" style="margin-left:10px;"></span>
+</div>
+
+<script>
+  function copyCardNumber(number) {
+    navigator.clipboard.writeText(number)
+      .then(() => {
+        const msg = document.getElementById("copy-msg");
+        msg.textContent = "Copied!";
+        
+        setTimeout(() => {
+          msg.textContent = "";
+        }, 2000);
+      })
+      .catch(err => {
+        console.error("Copy failed:", err);
+      });
+  }
+</script>
 
     <div class="entry">
       <h4>Pay Pal</h4>
