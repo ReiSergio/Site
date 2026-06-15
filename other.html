@@ -29,7 +29,11 @@
       pointer-events: none;
       animation: pulse-bg 12s infinite alternate;
     }
-    @keyframes pulse-bg { from { opacity: .35; } to { opacity: 1; } }
+
+    @keyframes pulse-bg {
+      from { opacity: .35; }
+      to { opacity: 1; }
+    }
 
     header {
       display: flex;
@@ -49,9 +53,16 @@
       box-shadow: 0 0 14px #a2447b;
       transition: .3s;
     }
-    header img:hover { transform: rotate(8deg) scale(1.06); }
 
-    nav { display: flex; gap: 23px; }
+    header img:hover {
+      transform: rotate(8deg) scale(1.06);
+    }
+
+    nav {
+      display: flex;
+      gap: 23px;
+    }
+
     nav a {
       font-size: 16px;
       font-weight: 600;
@@ -59,7 +70,10 @@
       text-decoration: none;
       transition: .25s;
     }
-    nav a:hover { text-shadow: 0 0 12px #ff80d4; }
+
+    nav a:hover {
+      text-shadow: 0 0 12px #ff80d4;
+    }
 
     .hero {
       flex: 1;
@@ -80,7 +94,11 @@
       animation: glow 2.5s infinite alternate;
       box-shadow: 0 0 28px rgba(162, 68, 123, 0.7);
     }
-    @keyframes glow { from { box-shadow: 0 0 14px #a2447b; } to { box-shadow: 0 0 30px #a2447b; } }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 14px #a2447b; }
+      to { box-shadow: 0 0 30px #a2447b; }
+    }
 
     .hero h2 {
       font-size: 42px;
@@ -99,9 +117,22 @@
       transition: .3s;
       box-shadow: 0 0 14px rgba(162, 68, 123, .6);
     }
-    .entry:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 0 32px rgba(162, 68, 123, 1); }
-    .entry h4 { margin-bottom: 14px; font-size: 21px; color: #ff7fcf; }
-    .entry p { font-size: 15px; word-break: break-all; }
+
+    .entry:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 0 32px rgba(162, 68, 123, 1);
+    }
+
+    .entry h4 {
+      margin-bottom: 14px;
+      font-size: 21px;
+      color: #ff7fcf;
+    }
+
+    .entry p {
+      font-size: 15px;
+      word-break: break-all;
+    }
 
     .link-btn {
       margin-top: 10px;
@@ -110,12 +141,18 @@
       font-size: 16px;
       color: #fff;
       background: rgba(0, 169, 255, 0.55);
+      border: none;
       border-radius: 10px;
       text-decoration: none;
+      cursor: pointer;
       transition: .25s;
       box-shadow: 0 0 16px rgba(0, 169, 255, .8);
     }
-    .link-btn:hover { transform: scale(1.05); box-shadow: 0 0 26px rgba(0, 169, 255, 1); }
+
+    .link-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 26px rgba(0, 169, 255, 1);
+    }
 
     .back-btn {
       margin-top: 40px;
@@ -129,7 +166,17 @@
       box-shadow: 0 0 22px rgba(255, 50, 200, .8);
       transition: .25s;
     }
-    .back-btn:hover { transform: scale(1.05); box-shadow: 0 0 35px rgba(255, 50, 200, 1); }
+
+    .back-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(255, 50, 200, 1);
+    }
+
+    #copy-msg {
+      margin-left: 10px;
+      color: #7dffb3;
+      font-size: 14px;
+    }
 
     footer {
       margin-top: auto;
@@ -139,20 +186,29 @@
       border-top: 1px solid rgba(162, 68, 123, 0.8);
       backdrop-filter: blur(12px);
     }
+
     footer img {
       height: 44px;
       border-radius: 50%;
       margin-bottom: 12px;
       box-shadow: 0 0 12px #a2447b;
     }
-    footer span { display: block; font-size: 15px; color: #b2eaff; }
+
+    footer span {
+      display: block;
+      font-size: 15px;
+      color: #b2eaff;
+    }
   </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo"><img src="tlf_circular.png" alt="TLF"></div>
+  <div class="logo">
+    <img src="tlf_circular.png" alt="TLF">
+  </div>
+
   <nav>
     <a href="index.html">About</a>
     <a href="https://discord.gg/mYn57emhGG" target="_blank">Discord</a>
@@ -161,6 +217,7 @@
 
 <section class="hero">
   <div class="hero-content">
+
     <h2>Thank you for supporting the project.</h2>
 
     <div class="entry">
@@ -170,17 +227,31 @@
       </a>
     </div>
 
-   <div class="entry">
-  <h4>YoMoney "RU only"</h4>
+    <div class="entry">
+      <h4>Cash App</h4>
+      <a class="link-btn" href="https://cash.app/$TheLastFrontier2?qr=1" target="_blank">
+        Open
+      </a>
+    </div>
 
-  <button
-    class="link-btn"
-    onclick="copyCardNumber('4100119541732022')">
-    4100119541732022
-  </button>
+    <div class="entry">
+      <h4>YoMoney "RU only"</h4>
 
-  <span id="copy-msg" style="margin-left:10px;"></span>
-</div>
+      <button
+        class="link-btn"
+        onclick="copyCardNumber('4100119541732022')">
+        4100119541732022
+      </button>
+
+      <span id="copy-msg"></span>
+    </div>
+
+    <a class="back-btn" href="donate.html">
+      Back to Donations
+    </a>
+
+  </div>
+</section>
 
 <script>
   function copyCardNumber(number) {
@@ -188,7 +259,7 @@
       .then(() => {
         const msg = document.getElementById("copy-msg");
         msg.textContent = "Copied!";
-        
+
         setTimeout(() => {
           msg.textContent = "";
         }, 2000);
@@ -197,11 +268,7 @@
         console.error("Copy failed:", err);
       });
   }
-</script>>
-
-    <a class="back-btn" href="donate.html">⬅ Back to Donations</a>
-  </div>
-</section>
+</script>
 
 </body>
 </html>
